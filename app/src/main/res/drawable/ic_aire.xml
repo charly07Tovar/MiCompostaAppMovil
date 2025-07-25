@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#666666">
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@android:color/black"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M3,8 Q8,6 12,8 Q16,10 21,8" />
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@android:color/black"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M2,12 Q7,10 11,12 Q15,14 20,12" />
+
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@android:color/black"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M4,16 Q9,14 13,16 Q17,18 22,16" />
+
+    <!-- Circle 1: cx="6", cy="5", radius="0.8" -->
+    <path
+        android:fillColor="@android:color/black"
+        android:pathData="M6,5 m-0.8,0 a0.8,0.8 0,1 1,1.6 0 a0.8,0.8 0,1 1,-1.6 0" />
+
+    <!-- Circle 2: cx="18", cy="19", radius="0.6" -->
+    <path
+        android:fillColor="@android:color/black"
+        android:pathData="M18,19 m-0.6,0 a0.6,0.6 0,1 1,1.2 0 a0.6,0.6 0,1 1,-1.2 0" />
+
+    <!-- Circle 3: cx="14", cy="6", radius="0.5" -->
+    <path
+        android:fillColor="@android:color/black"
+        android:pathData="M14,6 m-0.5,0 a0.5,0.5 0,1 1,1.0 0 a0.5,0.5 0,1 1,-1.0 0" />
+
+</vector>

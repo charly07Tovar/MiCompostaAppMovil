@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="org.utl.pruebaproyecto.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_historial"
+        android:name="org.utl.pruebaproyecto.ui.historial.Historial"
+        android:label="Historial"
+        tools:layout="@layout/fragment_historial" />
+
+    <fragment
+        android:id="@+id/nav_notificaciones"
+        android:name="org.utl.pruebaproyecto.ui.notificaciones.HistorialNotificaciones"
+        android:label="Notificaciones"
+        tools:layout="@layout/fragment_historial_notificaciones" />
+
+    <fragment
+        android:id="@+id/nav_control_asistencia"
+        android:name="org.utl.pruebaproyecto.ui.control.ControlAsistencia"
+        android:label="Control asistencia"
+        tools:layout="@layout/fragment_control_asistencia" />
+
+    <fragment
+        android:id="@+id/nav_monitoreo_condiciones"
+        android:name="org.utl.pruebaproyecto.ui.monitoreo.Monitoreo"
+        android:label="Monitoreo de Condiciones"
+        tools:layout="@layout/fragment_monitoreo" />
+
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="org.utl.pruebaproyecto.ui.configuracion.ConfiguracionFragment"
+        android:label="Configuración"
+        tools:layout="@layout/fragment_configuracion" />
+
+</navigation>

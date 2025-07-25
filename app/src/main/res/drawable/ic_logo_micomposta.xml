@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Hoja 1 -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M12,2C8,2 5,5 5,9C5,13 8,16 12,16C16,16 19,13 19,9C19,5 16,2 12,2Z" />
+
+    <!-- Hoja 2 -->
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M15,4C11,4 8,7 8,11C8,15 11,18 15,18C19,18 22,15 22,11C22,7 19,4 15,4Z" />
+
+    <!-- Tallo -->
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M12,16L12,22L14,22L14,16Z" />
+
+</vector>

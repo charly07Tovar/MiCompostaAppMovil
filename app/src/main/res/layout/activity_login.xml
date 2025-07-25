@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:padding="22dp">
+
+    <!-- Logo y título -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Logo con hojas -->
+        <ImageView
+            android:layout_width="420dp"
+            android:layout_height="103dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Logo MiComposta"
+            android:src="@drawable/logo_micomposta" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicio de Sesión"
+            android:textColor="#4A4A4A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicia sesión para empezar a compostar"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#4A4A4A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/edittext_background"
+            android:hint="ejemplo@micomposta.com"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textColor="#333333"
+            android:textColorHint="#AAAAAA"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="#4A4A4A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="40dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_background"
+                android:hint="••••••••••••"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:paddingEnd="48dp"
+                android:textColor="#333333"
+                android:textColorHint="#AAAAAA"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/ivShowPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_ojo_cerrado"
+                android:contentDescription="Mostrar contraseña"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </RelativeLayout>
+
+        <!-- Botón Sign In -->
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_background"
+            android:text="Iniciar Sesión"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Crear cuenta -->
+        <TextView
+            android:id="@+id/tvCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Crea una cuenta nueva"
+            android:textColor="#666666"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

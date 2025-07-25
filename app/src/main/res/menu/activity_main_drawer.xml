@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+
+        <!-- Inicio -->
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_inicio"
+            android:title="Inicio"
+            android:iconTint="#E91E63" />
+
+        <!-- Historial -->
+        <item
+            android:id="@+id/nav_historial"
+            android:icon="@drawable/ic_historial"
+            android:title="Historial"
+            android:iconTint="#666666" />
+
+        <!-- Notificaciones -->
+        <item
+            android:id="@+id/nav_notificaciones"
+            android:icon="@drawable/ic_notificacion"
+            android:title="Notificaciones"
+            android:iconTint="#666666" />
+        
+
+        <!-- Monitoreo de condiciones de composta -->
+        <item
+            android:id="@+id/nav_monitoreo_condiciones"
+            android:icon="@drawable/icmonitoreo"
+            android:title="Monitoreo de condiciones de composta"
+            android:iconTint="#666666" />
+
+        <!-- Control y asistencia -->
+        <item
+            android:id="@+id/nav_control_asistencia"
+            android:icon="@drawable/ic_controle"
+            android:title="Control y asistencia"
+            android:iconTint="#666666" />
+
+    </group>
+
+    <!-- Separador -->
+    <item android:title="@string/nav_separator">
+        <menu>
+            <!-- Configuración -->
+            <item
+                android:id="@+id/nav_configuracion"
+                android:title="Configuración"
+                android:iconTint="#666666" />
+        </menu>
+    </item>
+
+</menu>

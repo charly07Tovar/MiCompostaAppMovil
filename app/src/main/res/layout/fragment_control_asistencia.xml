@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header con logo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="103dp"
+                android:src="@drawable/logo_micomposta"
+                android:contentDescription="Logo MiComposta" />
+
+        </LinearLayout>
+
+        <!-- Título principal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp"
+            android:background="#F5F5F5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Control y asistencia activa"
+                android:textSize="22sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Menú de acciones -->
+            <TextView
+                android:id="@+id/btn_menu_acciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:text="Menú de acciones"
+                android:textSize="14sp"
+                android:textColor="#2196F3"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <!-- Estado de composta -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado de composta"
+                    android:textSize="16sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Icono de estado -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_alerta_amarilla"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="Estado de atención" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Atención"
+                    android:textSize="18sp"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Recomendación -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recomendación"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ Agregar agua"
+                    android:textSize="14sp"
+                    android:textColor="#2196F3"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Botón aplicar recomendación -->
+                <Button
+                    android:id="@+id/btn_aplicar_recomendacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Aplicar recomendación"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/button_blue"
+                    android:paddingHorizontal="16dp"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Controles -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="20dp">
+
+            <!-- Encender Ventilador -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_aire"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Ventilador" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Encender Ventilador"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <Switch
+                    android:id="@+id/switch_ventilador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/SwitchTheme" />
+
+            </LinearLayout>
+
+            <!-- Línea separadora -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Activar sistema de riego -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_gota"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Sistema de riego" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Activar sistema de riego"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <Switch
+                    android:id="@+id/switch_riego"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/SwitchTheme" />
+
+            </LinearLayout>
+
+            <!-- Línea separadora -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Activar sistema de mezcla -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_mezclar"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Sistema de mezcla" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Activar sistema de mezcla"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <Switch
+                    android:id="@+id/switch_mezcla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/SwitchTheme" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Espacio inferior -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+</ScrollView>
