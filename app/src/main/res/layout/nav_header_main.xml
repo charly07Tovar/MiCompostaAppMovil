@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginTop="15dp"
-            android:maxWidth="180dp"
+            android:maxWidth="100dp"
             android:maxHeight="80dp"
             android:src="@drawable/logo_micomposta"
             android:scaleType="fitCenter"
@@ -33,6 +33,15 @@
     </LinearLayout>
 
     <!-- Información del usuario -->
+    <TextView
+        android:id="@+id/txtLetraPerfil"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -42,10 +51,10 @@
         android:paddingTop="8dp">
 
         <TextView
-            android:id="@+id/textUserName"
+            android:id="@+id/textNombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Johanna Doe"
+            android:text=""
             android:textColor="#333333"
             android:textSize="@dimen/nav_header_title_text_size"
             android:textStyle="bold"
@@ -54,10 +63,10 @@
             android:ellipsize="end" />
 
         <TextView
-            android:id="@+id/textUserEmail"
+            android:id="@+id/textEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="johanna@micomposta.com"
+            android:text=""
             android:textColor="#666666"
             android:textSize="@dimen/nav_header_subtitle_text_size"
             android:maxLines="1"
