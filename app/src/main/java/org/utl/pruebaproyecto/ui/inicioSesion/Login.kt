@@ -17,6 +17,7 @@ class Login : AppCompatActivity() {
     private lateinit var btnSignIn: Button
     private lateinit var tvCreateAccount: TextView
     private lateinit var auth: FirebaseAuth
+    private lateinit var tvForgotPassword: TextView
 
     private var isPasswordVisible = false
 
@@ -39,11 +40,16 @@ class Login : AppCompatActivity() {
         ivShowPassword = findViewById(R.id.ivShowPassword)
         btnSignIn = findViewById(R.id.btnSignIn)
         tvCreateAccount = findViewById(R.id.tvCreateAccount)
+        tvForgotPassword = findViewById(R.id.forgotPassword)
     }
 
     private fun setupClickListeners() {
         ivShowPassword.setOnClickListener {
             togglePasswordVisibility()
+        }
+
+        tvForgotPassword.setOnClickListener {
+            showPasswordResetDialog()
         }
 
         btnSignIn.setOnClickListener {
@@ -113,4 +119,41 @@ class Login : AppCompatActivity() {
                 }
             }
     }
+
+
+    private fun showPasswordResetDialog() {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Recuperar contraseña")
+        builder.setMessage("Introduce tu correo electrónico para enviar un enlace de recuperación.")
+
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        input.hint = "correo@ejemplo.com"
+        builder.setView(input)
+
+        builder.setPositiveButton("Enviar") { dialog, _ ->
+            val email = input.text.toString().trim()
+            if (email.isNotEmpty()) {
+                auth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Correo de recuperación enviado.", Toast.LENGTH_LONG).show()
+                        } else {
+                            val error = task.exception?.message ?: "Ocurrió un error"
+                            Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Por favor ingresa un correo válido.", Toast.LENGTH_SHORT).show()
+            }
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        builder.show()
+    }
+
 }
