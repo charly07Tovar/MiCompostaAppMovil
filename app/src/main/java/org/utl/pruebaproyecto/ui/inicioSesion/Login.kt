@@ -6,6 +6,9 @@ import android.text.InputType
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import org.utl.pruebaproyecto.MainActivity
 import org.utl.pruebaproyecto.R
 
@@ -113,12 +116,19 @@ class Login : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
-
                 } else {
-                    Toast.makeText(this, "Error al iniciar sesión: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    val errorMessage = when (val exception = task.exception) {
+                        is FirebaseAuthInvalidUserException -> "El correo no está registrado o la cuenta fue desactivada."
+                        is FirebaseAuthInvalidCredentialsException -> "Correo o contraseña incorrectos."
+                        is FirebaseAuthUserCollisionException -> "Ya existe una cuenta con este correo."
+                        else -> "Error al iniciar sesión. Intenta de nuevo más tarde."
+                    }
+
+                    Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
                 }
             }
     }
+
 
 
     private fun showPasswordResetDialog() {

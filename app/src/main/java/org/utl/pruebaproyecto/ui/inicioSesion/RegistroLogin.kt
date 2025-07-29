@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.firestore.FirebaseFirestore
+import org.utl.pruebaproyecto.MainActivity
 import org.utl.pruebaproyecto.R
 
 class RegistroLogin : AppCompatActivity() {
@@ -16,6 +17,7 @@ class RegistroLogin : AppCompatActivity() {
     private lateinit var etRegisterEmail: EditText
     private lateinit var etRegisterPassword: EditText
     private lateinit var btnContinue: Button
+    private lateinit var btnBack: ImageButton
 
     private lateinit var auth: FirebaseAuth
     private val db = FirebaseFirestore.getInstance()
@@ -27,6 +29,9 @@ class RegistroLogin : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         initViews()
         setupRegister()
+        btnBack.setOnClickListener {
+            goBackToMain()
+        }
     }
 
     private fun initViews() {
@@ -35,6 +40,14 @@ class RegistroLogin : AppCompatActivity() {
         etRegisterEmail = findViewById(R.id.etRegisterEmail)
         etRegisterPassword = findViewById(R.id.etRegisterPassword)
         btnContinue = findViewById(R.id.btnContinue)
+        btnBack = findViewById(R.id.btnBack)
+    }
+
+    private fun goBackToMain() {
+        val intent = Intent(this, Login::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setupRegister() {
