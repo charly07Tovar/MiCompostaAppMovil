@@ -46,17 +46,6 @@
                 android:lineSpacingExtra="2dp" />
 
             <!-- Menú de acciones -->
-            <TextView
-                android:id="@+id/btn_menu_acciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="8dp"
-                android:text="Menú de acciones"
-                android:textSize="14sp"
-                android:textColor="#2196F3"
-                android:background="?android:attr/selectableItemBackground"
-                android:padding="8dp" />
 
         </LinearLayout>
 
@@ -88,17 +77,18 @@
 
                 <!-- Icono de estado -->
                 <ImageView
+                    android:id="@+id/icono_estado"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_alerta_amarilla"
+                    android:src="@drawable/ic_logo_micomposta"
                     android:layout_marginBottom="8dp"
                     android:contentDescription="Estado de atención" />
 
                 <TextView
+                    android:id="@+id/tv_estado_composta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:text="Atención"
+                    android:text="Cargando...."
                     android:textSize="18sp"
                     android:textColor="#333333"
                     android:textStyle="bold"
@@ -114,24 +104,16 @@
                     android:layout_marginBottom="4dp" />
 
                 <TextView
+                    android:id="@+id/tv_recomendacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⚡ Agregar agua"
+                    android:text="cargando...."
                     android:textSize="14sp"
                     android:textColor="#2196F3"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="16dp" />
 
                 <!-- Botón aplicar recomendación -->
-                <Button
-                    android:id="@+id/btn_aplicar_recomendacion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:text="Aplicar recomendación"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/button_blue"
-                    android:paddingHorizontal="16dp"
-                    android:textAllCaps="false" />
 
             </LinearLayout>
 
@@ -222,36 +204,6 @@
                 android:background="#E0E0E0"
                 android:layout_marginVertical="8dp" />
 
-            <!-- Activar sistema de mezcla -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingVertical="16dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_mezclar"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="Sistema de mezcla" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Activar sistema de mezcla"
-                    android:textSize="16sp"
-                    android:textColor="#333333" />
-
-                <Switch
-                    android:id="@+id/switch_mezcla"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:theme="@style/SwitchTheme" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

@@ -74,16 +74,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.nav_control_asistencia)
         }
 
-        // Historial de registros
-        binding.cardHistory.setOnClickListener {
-            Toast.makeText(context, "Historial de registros", Toast.LENGTH_SHORT).show()
-             findNavController().navigate(R.id.nav_historial)
-        }
 
         // Notificaciones
         binding.cardNotifications.setOnClickListener {
             Toast.makeText(context, "Notificaciones", Toast.LENGTH_SHORT).show()
-            Toast.makeText(context, "Modificacion de prueba para inicializar rama de dev charly", Toast.LENGTH_SHORT).show()
              findNavController().navigate(R.id.nav_notificaciones)
         }
     }

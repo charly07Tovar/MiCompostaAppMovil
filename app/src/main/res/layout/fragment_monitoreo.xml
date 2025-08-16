@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,16 +39,6 @@
             android:textColor="#333333"
             android:gravity="center"
             android:layout_marginBottom="8dp" />
-
-        <!-- Subtítulo -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registro de notificaciones"
-            android:textSize="16sp"
-            android:textColor="#666666"
-            android:gravity="center"
-            android:layout_marginBottom="32dp" />
 
         <!-- Progreso hasta hoy -->
         <TextView
@@ -82,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="64%"
+                android:text="0%"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="#4CAF50" />
@@ -94,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:rowCount="2"
+            android:rowCount="3"
             android:layout_marginTop="10dp">
 
             <!-- Temperatura de aire -->
@@ -127,9 +118,10 @@
                         android:src="@drawable/ic_temperatura" />
 
                     <TextView
+                        android:id="@+id/tvTemperatura"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="45°C"
+                        android:text="0°C"
                         android:textColor="#FF9800"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -169,9 +161,10 @@
                         android:src="@drawable/ic_nube"/>
 
                     <TextView
+                        android:id="@+id/tvHumedad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="60%"
+                        android:text="0%"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="#2196F3" />
@@ -211,9 +204,10 @@
                         android:src="@drawable/ic_water" />
 
                     <TextView
+                        android:id="@+id/tvHumedadSuelo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="30%"
+                        android:text="0%"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="#4CAF50" />
@@ -222,7 +216,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Niveles de gases -->
+            <!-- Nivel NH3 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="120dp"
@@ -242,7 +236,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Niveles de gases"
+                        android:text="Nivel de NH3"
                         android:textSize="12sp"
                         android:textColor="#666666"
                         android:layout_marginBottom="8dp" />
@@ -254,12 +248,101 @@
                         android:layout_marginBottom="8dp" />
 
                     <TextView
+                        android:id="@+id/tvNivelNH3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ALTO"
+                        android:text="Cargando..."
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#F44336" />
+                        android:textColor="#4CAF50" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Nivel CH4 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nivel de CH4"
+                        android:textSize="12sp"
+                        android:textColor="#666666"
+                        android:layout_marginBottom="8dp" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_air"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvNivelCH4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cargando..."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Nivel CO2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nivel de CO2"
+                        android:textSize="12sp"
+                        android:textColor="#666666"
+                        android:layout_marginBottom="8dp" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_air"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvNivelCO2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cargando..."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50" />
 
                 </LinearLayout>
 

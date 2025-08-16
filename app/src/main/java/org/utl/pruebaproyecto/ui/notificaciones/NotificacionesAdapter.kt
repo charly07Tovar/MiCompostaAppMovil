@@ -3,59 +3,74 @@ package org.utl.pruebaproyecto.ui.notificaciones
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.util.*
 import org.utl.pruebaproyecto.R
 
-class NotificacionesAdapter : RecyclerView.Adapter<NotificacionesAdapter.NotificationViewHolder>() {
+class NotificacionesAdapter(
+    private var notificaciones: List<Notificacion>,
+    private val onItemClick: (String) -> Unit
+) : RecyclerView.Adapter<NotificacionesAdapter.NotificacionViewHolder>() {
 
-    private var notifications = mutableListOf<NotificationItem>()
-
-    fun updateNotifications(newNotifications: List<NotificationItem>) {
-        notifications.clear()
-        notifications.addAll(newNotifications)
-        notifyDataSetChanged()
+    inner class NotificacionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvTitulo: TextView = itemView.findViewById(R.id.text_title)
+        val tvDescripcion: TextView = itemView.findViewById(R.id.text_description)
+        val tvTiempo: TextView = itemView.findViewById(R.id.text_time)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificacionViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_notificacion, parent, false)
-        return NotificationViewHolder(view)
+        return NotificacionViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
-        holder.bind(notifications[position])
-    }
+    override fun onBindViewHolder(holder: NotificacionViewHolder, position: Int) {
+        val notificacion = notificaciones[position]
 
-    override fun getItemCount(): Int = notifications.size
+        // Configurar los textos
+        holder.tvTitulo.text = notificacion.titulo
+        holder.tvDescripcion.text = notificacion.descripcion
 
-    class NotificationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val iconWarning: ImageView = itemView.findViewById(R.id.icon_warning)
-        private val textTitle: TextView = itemView.findViewById(R.id.text_title)
-        private val textDescription: TextView = itemView.findViewById(R.id.text_description)
-        private val textTime: TextView = itemView.findViewById(R.id.text_time)
+        // Formatear la fecha
+        val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        if (esHoy(notificacion.fecha)) {
+            holder.tvTiempo.text = sdf.format(notificacion.fecha)
+        } else {
+            val sdfFecha = SimpleDateFormat("dd/MM", Locale.getDefault())
+            holder.tvTiempo.text = sdfFecha.format(notificacion.fecha)
+        }
 
-        fun bind(notification: NotificationItem) {
-            textTitle.text = notification.title
-            textDescription.text = notification.description
-            textTime.text = notification.time
+        // Cambiar estilo si no está leída
+        if (!notificacion.leida) {
+            holder.tvTitulo.setTextColor(holder.itemView.context.getColor(R.color.colorPrimaryDark))
+            holder.tvDescripcion.setTextColor(holder.itemView.context.getColor(R.color.colorPrimary))
+        } else {
+            holder.tvTitulo.setTextColor(holder.itemView.context.getColor(android.R.color.darker_gray))
+            holder.tvDescripcion.setTextColor(holder.itemView.context.getColor(android.R.color.darker_gray))
+        }
 
-            // Configurar icono según el tipo
-            when (notification.type) {
-                NotificationType.WARNING -> {
-                    iconWarning.setImageResource(R.drawable.ic_alerta)
-                    iconWarning.setColorFilter(android.graphics.Color.parseColor("#FF9800"))
-                }
-                NotificationType.ERROR -> {
-                    iconWarning.setImageResource(R.drawable.ic_alerta)
-                    iconWarning.setColorFilter(android.graphics.Color.parseColor("#F44336"))
-                }
-                NotificationType.INFO -> {
-                    iconWarning.setImageResource(R.drawable.ic_alerta)
-                    iconWarning.setColorFilter(android.graphics.Color.parseColor("#2196F3"))
-                }
-            }
+        holder.itemView.setOnClickListener {
+            onItemClick(notificacion.id)
         }
     }
+
+    private fun esHoy(fecha: Date): Boolean {
+        val hoy = Calendar.getInstance()
+        val fechaNotif = Calendar.getInstance()
+        fechaNotif.time = fecha
+
+        return hoy.get(Calendar.YEAR) == fechaNotif.get(Calendar.YEAR) &&
+                hoy.get(Calendar.MONTH) == fechaNotif.get(Calendar.MONTH) &&
+                hoy.get(Calendar.DAY_OF_MONTH) == fechaNotif.get(Calendar.DAY_OF_MONTH)
+    }
+
+    override fun getItemCount() = notificaciones.size
+
+    fun actualizarDatos(nuevasNotificaciones: List<Notificacion>) {
+        this.notificaciones = nuevasNotificaciones
+        notifyDataSetChanged()
+    }
 }
+
