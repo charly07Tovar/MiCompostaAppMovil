@@ -37,6 +37,14 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1,INDEX.LIST,DEPENDENCIES}"
+            merges += "META-INF/LICENSE"
+            merges += "META-INF/io.netty.versions.properties"
+        }
+    }
 }
 
 dependencies {
@@ -59,5 +67,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth") // Autenticación
     implementation("com.google.firebase:firebase-firestore") // Firestore (Java)
     implementation("com.google.firebase:firebase-firestore-ktx") // Firestore (Kotlin)
+    implementation("com.hivemq:hivemq-mqtt-client:1.3.3") // MQTT
 
 }

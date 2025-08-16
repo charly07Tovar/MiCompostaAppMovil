@@ -6,6 +6,12 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="ventilador_activado">Ventilador activado</string>
+    <string name="motivo_nh3_alto">Niveles de NH3 altos</string>
+    <string name="motivo_ch4_alto">Niveles de CH4 altos</string>
+    <string name="motivo_co2_alto">Niveles de CO2 altos</string>
+    <string name="motivo_temperatura_alta">Temperatura alta</string>
+    <string name="motivo_desconocido">Razón desconocida</string>
 
     <string name="menu_home">Bienvenido a MiComposta</string>
     <string name="menu_gallery">Gallery</string>
